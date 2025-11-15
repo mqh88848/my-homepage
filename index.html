@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的个人主页</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #4a90e2, #9013fe);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+    .card {
+        background: rgba(255,255,255,0.1);
+        padding: 40px 50px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 5px 40px rgba(0,0,0,0.2);
+        animation: pop 0.6s ease;
+    }
+    @keyframes pop {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 18px;
+        opacity: 0.9;
+    }
+    .links {
+        margin-top: 25px;
+    }
+    .links a {
+        display: inline-block;
+        margin: 8px 12px;
+        padding: 12px 20px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.2);
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.2s;
+    }
+    .links a:hover {
+        background: rgba(255,255,255,0.35);
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>你好，这里是我的主页</h1>
+    <p>欢迎来到我的小世界 🌏</p>
+    <div class="links">
+        <a href="https://github.com">GitHub</a>
+        <a href="https://qm.qq.com">QQ</a>
+        <a href="https://space.bilibili.com">B站</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -54,17 +54,14 @@
 
 <div class="container">
 
-    <!-- 视频 1 -->
     <div class="video-box">
         <video muted preload="none" src="video1.mp4"></video>
     </div>
 
-    <!-- 视频 2 -->
     <div class="video-box">
         <video muted preload="none" src="video2.mp4"></video>
     </div>
 
-    <!-- 视频 3 -->
     <div class="video-box">
         <video muted preload="none" src="video3.mp4"></video>
     </div>
@@ -72,14 +69,13 @@
 </div>
 
 <script>
-    // 鼠标悬停自动播放 / 移开暂停
     document.querySelectorAll("video").forEach(v => {
         v.addEventListener("mouseenter", () => {
             v.play();
         });
         v.addEventListener("mouseleave", () => {
             v.pause();
-            v.currentTime = 0; // 鼠标离开后回到开头
+            v.currentTime = 0;
         });
     });
 </script>

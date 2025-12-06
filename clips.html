@@ -4,106 +4,106 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>游戏精彩</title>
-&nbsp;&nbsp;&nbsp;&nbsp;<link rel="icon" href="data:image/svg+xml;utf8,
-&nbsp;&nbsp;&nbsp;&nbsp;<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='50'>✨</text>
-&nbsp;&nbsp;&nbsp;&nbsp;</svg>">
+    <link rel="icon" href="data:image/svg+xml;utf8,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+        <text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='50'>✨</text>
+    </svg>">
 <style>
 body {
-&nbsp;&nbsp;&nbsp;&nbsp;margin: 0;
-&nbsp;&nbsp;&nbsp;&nbsp;font-family: "Segoe UI", sans-serif;
-&nbsp;&nbsp;&nbsp;&nbsp;background-image: url("background.jpg");
-&nbsp;&nbsp;&nbsp;&nbsp;background-size: cover;
-&nbsp;&nbsp;&nbsp;&nbsp;background-position: center;
-&nbsp;&nbsp;&nbsp;&nbsp;color: #fff;
-&nbsp;&nbsp;&nbsp;&nbsp;padding: 40px;
-&nbsp;&nbsp;&nbsp;&nbsp;text-align: center;
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
 }
 h1 { font-size: 40px; margin-bottom: 30px; }
 .container {
-&nbsp;&nbsp;&nbsp;&nbsp;display: grid;
-&nbsp;&nbsp;&nbsp;&nbsp;grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-&nbsp;&nbsp;&nbsp;&nbsp;gap: 25px;
-&nbsp;&nbsp;&nbsp;&nbsp;padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
 }
 .video-box {
-&nbsp;&nbsp;&nbsp;&nbsp;background: rgba(255,255,255,0.15);
-&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 15px;
-&nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;
-&nbsp;&nbsp;&nbsp;&nbsp;backdrop-filter: blur(6px);
-&nbsp;&nbsp;&nbsp;&nbsp;transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255,255,255,0.15);
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .video-box:hover {
-&nbsp;&nbsp;&nbsp;&nbsp;transform: scale(1.07);
-&nbsp;&nbsp;&nbsp;&nbsp;box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    transform: scale(1.07);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 .video-box video {
-&nbsp;&nbsp;&nbsp;&nbsp;width: 100%;
-&nbsp;&nbsp;&nbsp;&nbsp;display: block;
-&nbsp;&nbsp;&nbsp;&nbsp;cursor: pointer;
+    width: 100%;
+    display: block;
+    cursor: pointer;
 }
 .title {
-&nbsp;&nbsp;&nbsp;&nbsp;padding: 10px;
-&nbsp;&nbsp;&nbsp;&nbsp;font-size: 16px;
-&nbsp;&nbsp;&nbsp;&nbsp;background: rgba(0,0,0,0.3);
+    padding: 10px;
+    font-size: 16px;
+    background: rgba(0,0,0,0.3);
 }
 </style>
 </head>
 <body>
 <h1>🎮 游戏精彩</h1>
 <div class="container">
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="video-box">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<video
-&nbsp;&nbsp;&nbsp;&nbsp;src="video1.mp4"
-&nbsp;&nbsp;&nbsp;&nbsp;poster="cover.jpg"
-&nbsp;&nbsp;&nbsp;&nbsp;controls
-&nbsp;&nbsp;&nbsp;&nbsp;muted
-&nbsp;&nbsp;&nbsp;&nbsp;preload="auto"
-&nbsp;&nbsp;&nbsp;&nbsp;width="480">
+    <div class="video-box">
+        <video
+    src="video1.mp4"
+    poster="cover.jpg"
+    controls
+    muted
+    preload="auto"
+    width="480">
 </video>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="title">超糖视频</div>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="video-box">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<video
-&nbsp;&nbsp;&nbsp;&nbsp;src="video2.mp4"
-&nbsp;&nbsp;&nbsp;&nbsp;poster="cover.jpg"
-&nbsp;&nbsp;&nbsp;&nbsp;controls
-&nbsp;&nbsp;&nbsp;&nbsp;muted
-&nbsp;&nbsp;&nbsp;&nbsp;preload="auto"
-&nbsp;&nbsp;&nbsp;&nbsp;width="480">
+        <div class="title">超糖视频</div>
+    </div>
+    <div class="video-box">
+        <video
+    src="video2.mp4"
+    poster="cover.jpg"
+    controls
+    muted
+    preload="auto"
+    width="480">
 </video>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="title">下定决心</div>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="video-box">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<video
-&nbsp;&nbsp;&nbsp;&nbsp;src="video3.mp4"
-&nbsp;&nbsp;&nbsp;&nbsp;poster="cover.jpg"
-&nbsp;&nbsp;&nbsp;&nbsp;controls
-&nbsp;&nbsp;&nbsp;&nbsp;muted
-&nbsp;&nbsp;&nbsp;&nbsp;preload="auto"
-&nbsp;&nbsp;&nbsp;&nbsp;width="480">
+        <div class="title">下定决心</div>
+    </div>
+    <div class="video-box">
+        <video
+    src="video3.mp4"
+    poster="cover.jpg"
+    controls
+    muted
+    preload="auto"
+    width="480">
 </video>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="title">已和谐</div>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="title">已和谐</div>
+    </div>
 </div>
 <script>
 document.querySelectorAll(".video-box video").forEach(v => {
-&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;v.addEventListener("mouseenter", () => {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (v.paused) v.play();
-&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;v.addEventListener("mouseleave", () => {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!v.paused) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.pause();
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.currentTime = 0;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;v.addEventListener("click", () => {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (v.paused) v.play();
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else v.pause();
-&nbsp;&nbsp;&nbsp;&nbsp;});
+  
+    v.addEventListener("mouseenter", () => {
+        if (v.paused) v.play();
+    });
+ 
+    v.addEventListener("mouseleave", () => {
+        if (!v.paused) {
+            v.pause();
+            v.currentTime = 0;
+        }
+    });
+ 
+    v.addEventListener("click", () => {
+        if (v.paused) v.play();
+        else v.pause();
+    });
 });
 </script>
 </body>

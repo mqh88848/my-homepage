@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>游戏精彩瞬间</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #fff;
+        padding: 40px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 20px;
+    }
+
+    .video-box {
+        background: rgba(255,255,255,0.15);
+        border-radius: 15px;
+        overflow: hidden;
+        backdrop-filter: blur(6px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-box:hover {
+        transform: scale(1.07);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .video-box video {
+        width: 100%;
+        border-radius: 15px;
+        display: block;
+    }
+</style>
+</head>
+
+<body>
+<h1>🎮 我的游戏精彩瞬间</h1>
+
+<div class="container">
+
+    <!-- 视频 1 -->
+    <div class="video-box">
+        <video muted preload="none" src="video1.mp4"></video>
+    </div>
+
+    <!-- 视频 2 -->
+    <div class="video-box">
+        <video muted preload="none" src="video2.mp4"></video>
+    </div>
+
+    <!-- 视频 3 -->
+    <div class="video-box">
+        <video muted preload="none" src="video3.mp4"></video>
+    </div>
+
+</div>
+
+<script>
+    // 鼠标悬停自动播放 / 移开暂停
+    document.querySelectorAll("video").forEach(v => {
+        v.addEventListener("mouseenter", () => {
+            v.play();
+        });
+        v.addEventListener("mouseleave", () => {
+            v.pause();
+            v.currentTime = 0; // 鼠标离开后回到开头
+        });
+    });
+</script>
+
+</body>
+</html>

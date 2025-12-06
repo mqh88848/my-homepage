@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>游戏精彩</title>
-    <link rel="icon" href="data:image/svg+xml;utf8,
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
-        <text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='50'>✨</text>
-    </svg>">
+<link rel="icon" href="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+    <text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='50'>✨</text>
+</svg>">
 <style>
 body {
     margin: 0;
@@ -54,52 +54,50 @@ h1 { font-size: 40px; margin-bottom: 30px; }
 <div class="container">
     <div class="video-box">
         <video
-    src="video1.mp4"
-    poster="cover.jpg"
-    controls
-    muted
-    preload="auto"
-    width="480">
-</video>
+            src="video1.mp4"
+            poster="cover.jpg"
+            controls
+            muted
+            preload="none"
+            width="480">
+        </video>
         <div class="title">超糖视频</div>
     </div>
     <div class="video-box">
         <video
-    src="video2.mp4"
-    poster="cover.jpg"
-    controls
-    muted
-    preload="auto"
-    width="480">
-</video>
+            src="video2.mp4"
+            poster="cover.jpg"
+            controls
+            muted
+            preload="none"
+            width="480">
+        </video>
         <div class="title">下定决心</div>
     </div>
     <div class="video-box">
         <video
-    src="video3.mp4"
-    poster="cover.jpg"
-    controls
-    muted
-    preload="auto"
-    width="480">
-</video>
+            src="video3.mp4"
+            poster="cover.jpg"
+            controls
+            muted
+            preload="none"
+            width="480">
+        </video>
         <div class="title">已和谐</div>
     </div>
 </div>
 <script>
 document.querySelectorAll(".video-box video").forEach(v => {
-  
     v.addEventListener("mouseenter", () => {
         if (v.paused) v.play();
     });
- 
+
     v.addEventListener("mouseleave", () => {
         if (!v.paused) {
             v.pause();
-            v.currentTime = 0;
         }
     });
- 
+
     v.addEventListener("click", () => {
         if (v.paused) v.play();
         else v.pause();

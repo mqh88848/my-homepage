@@ -2,88 +2,87 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>游戏精彩瞬间</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游戏精彩</title>
 <style>
-    body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        background-image: url("background.jpg");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        color: #fff;
-        padding: 40px;
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 40px;
-        margin-bottom: 30px;
-    }
-
-    .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 25px;
-        padding: 20px;
-    }
-
-    .video-box {
-        background: rgba(255,255,255,0.15);
-        border-radius: 15px;
-        overflow: hidden;
-        backdrop-filter: blur(6px);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .video-box:hover {
-        transform: scale(1.07);
-        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    }
-
-    .video-box video {
-        width: 100%;
-        display: block;
-    }
-
-    .title {
-        padding: 10px;
-        font-size: 16px;
-        background: rgba(0,0,0,0.3);
-    }
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+h1 { font-size: 40px; margin-bottom: 30px; }
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+.video-box {
+    background: rgba(255,255,255,0.15);
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.video-box:hover {
+    transform: scale(1.07);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+.video-box video {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+.title {
+    padding: 10px;
+    font-size: 16px;
+    background: rgba(0,0,0,0.3);
+}
 </style>
 </head>
-
 <body>
-<h1>🎮 我的游戏精彩瞬间</h1>
+
+<h1>🎮 游戏精彩</h1>
 
 <div class="container">
-
     <div class="video-box">
-        <video muted preload="none" src="video1.mp4"></video>
-        <div class="title">超糖小视频</div>
+        <video src="video1.mp4" muted preload="none" controls></video>
+        <div class="title">超糖视频</div>
     </div>
-
     <div class="video-box">
-        <video muted preload="none" src="video2.mp4"></video>
-        <div class="title">离奇cs2</div>
+        <video src="video2.mp4" muted preload="none" controls></video>
+        <div class="title">下定决心</div>
     </div>
-
     <div class="video-box">
-        <video muted preload="none" src="video3.mp4"></video>
+        <video src="video3.mp4" muted preload="none" controls></video>
         <div class="title">已和谐</div>
     </div>
-
 </div>
 
 <script>
-    document.querySelectorAll("video").forEach(v => {
-        v.addEventListener("mouseenter", () => v.play());
-        v.addEventListener("mouseleave", () => {
+document.querySelectorAll(".video-box video").forEach(v => {
+    
+    v.addEventListener("mouseenter", () => {
+        if (v.paused) v.play();
+    });
+   
+    v.addEventListener("mouseleave", () => {
+        if (!v.paused) {
             v.pause();
             v.currentTime = 0;
-        });
+        }
     });
+   
+    v.addEventListener("click", () => {
+        if (v.paused) v.play();
+        else v.pause();
+    });
+});
 </script>
 
 </body>

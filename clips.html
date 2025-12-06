@@ -37,10 +37,30 @@ h1 { font-size: 40px; margin-bottom: 30px; }
     transform: scale(1.07);
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
-.video-box video {
+.video-wrapper {
+    position: relative;
     width: 100%;
+    background: #000;
+}
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
     display: block;
     cursor: pointer;
+    object-fit: cover;
+}
+.video-wrapper .poster {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;   /* 重要：让鼠标事件穿透到 video，controls 也能点 */
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+.video-box:hover .poster {
+    opacity: 0;
 }
 .title {
     padding: 10px;
@@ -53,52 +73,49 @@ h1 { font-size: 40px; margin-bottom: 30px; }
 <h1>🎮 游戏精彩</h1>
 <div class="container">
     <div class="video-box">
-        <video
-            src="video1.mp4"
-            poster="cover.jpg"
-            controls
-            muted
-            preload="none">
-        </video>
+        <div class="video-wrapper">
+            <video src="video1.mp4" muted controls preload="none" loop playsinline></video>
+            <img src="cover.jpg" class="poster" alt="封面">
+        </div>
         <div class="title">超糖视频</div>
     </div>
+    
     <div class="video-box">
-        <video
-            src="video2.mp4"
-            poster="cover.jpg"
-            controls
-            muted
-            preload="none">
-        </video>
+        <div class="video-wrapper">
+            <video src="video2.mp4" muted controls preload="none" loop playsinline></video>
+            <img src="cover.jpg" class="poster" alt="封面">
+        </div>
         <div class="title">下定决心</div>
     </div>
+    
     <div class="video-box">
-        <video
-            src="video3.mp4"
-            poster="cover.jpg"
-            controls
-            muted
-            preload="none">
-        </video>
+        <div class="video-wrapper">
+            <video src="video3.mp4" muted controls preload="none" loop playsinline></video>
+            <img src="cover.jpg" class="poster" alt="封面">
+        </div>
         <div class="title">已和谐</div>
     </div>
 </div>
+
 <script>
-document.querySelectorAll(".video-box video").forEach(v => {
+document.querySelectorAll(".video-wrapper").forEach(wrapper => {
+    const video = wrapper.querySelector("video");
+    
+    wrapper.addEventListener("mouseenter", () => {
+        if (video.paused) {
+            video.play();
+        }
+    });
+    
+    wrapper.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0;
+    });
+    
    
-    v.addEventListener("mouseenter", () => {
-        if (v.paused) v.play();
-    });
-  
-    v.addEventListener("mouseleave", () => {
-        v.pause();
-        v.currentTime = 0;
-        v.load();   
-    });
-  
-    v.addEventListener("click", () => {
-        if (v.paused) v.play();
-        else v.pause();
+    wrapper.addEventListener("click", () => {
+        if (video.paused) video.play();
+        else video.pause();
     });
 });
 </script>

@@ -1,310 +1,121 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>游戏精彩</title>
-<link rel="icon" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50%25' x='50%25' dominant-baseline='middle' text-anchor='middle' font-size='50'%3E✨%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+    <text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='50'>✨</text>
+</svg>">
 <style>
-  :root{
-    --fg: #fff;
-    --glass: rgba(255,255,255,0.12);
-    --glass-strong: rgba(0,0,0,0.35);
-    --gap: 24px;
-  }
-
-  /* 基础 */
-  html,body{height:100%;margin:0}
-  body{
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
     background-image: url("background.jpg");
     background-size: cover;
     background-position: center;
-    color:var(--fg);
-    padding:40px;
-    box-sizing:border-box;
-    text-align:center;
-  }
-
-  h1{font-size:40px;margin:0 0 24px}
-
-  main{max-width:1200px;margin:0 auto}
-
-  /* 容器 */
-  .container{
-    display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap:var(--gap);
-    padding:20px 0;
-  }
-
-  /* 卡片/视频 */
-  .video-box{
-    background: var(--glass);
-    border-radius:12px;
-    overflow:hidden;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+h1 { font-size: 40px; margin-bottom: 30px; }
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+.video-box {
+    background: rgba(255,255,255,0.15);
+    border-radius: 15px;
+    overflow: hidden;
     backdrop-filter: blur(6px);
-    transition: transform .28s ease, box-shadow .28s ease;
-    position:relative;
-    cursor:pointer;
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
-  }
-  .video-box:focus{outline:3px solid rgba(255,255,255,0.12); box-shadow:0 6px 30px rgba(0,0,0,0.45)}
-  .video-box:hover{ transform: translateY(-6px) scale(1.02); box-shadow:0 14px 50px rgba(0,0,0,0.45) }
-
-  /* 让视频填充盒子并保持裁切 */
-  .video-box video{
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
-    aspect-ratio: 16/9;
-    background: #000;
-  }
-
-  .meta{
-    padding:10px;
-    font-size:15px;
-    background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
-    text-align:left;
-  }
-
-  .title{ font-weight:600 }
-  .caption{ font-size:13px; opacity:0.85 }
-
-  /* play overlay (for accessibility/visual) */
-  .play-overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    pointer-events:none; /* click goes to container */
-    transition:opacity .18s ease;
-  }
-  .play-pulse{
-    width:72px;height:72px;border-radius:50%;
-    display:grid;place-items:center;
-    background:rgba(0,0,0,0.35);backdrop-filter:blur(2px);
-  }
-
-  /* 减少动画对敏感用户影响 */
-  @media (prefers-reduced-motion: reduce){
-    .video-box, .play-overlay, .video-box:hover { transition: none; transform:none; }
-  }
-
-  /* 响应式小屏保持可读 */
-  @media (max-width:420px){
-    body{padding:18px}
-    h1{font-size:24px}
-  }
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.video-box:hover {
+    transform: scale(1.07);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+.video-box video {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+.title {
+    padding: 10px;
+    font-size: 16px;
+    background: rgba(0,0,0,0.3);
+}
 </style>
 </head>
 <body>
-<main>
-  <h1>🎮 游戏精彩</h1>
-  <section class="container" id="gallery" aria-label="视频画廊">
-    <!-- 每个视频用 figure/figcaption 语义化 -->
-    <figure class="video-box" tabindex="0" role="group" aria-label="超糖视频">
-      <!-- NOTE: data-src 用于懒加载，实际进入视口时会注入为 <source> -->
-      <video muted playsinline preload="none" loop data-preview="true" aria-hidden="false">
-        <!-- <source> 会由脚本在需要时注入以实现懒加载 -->
-        <track kind="captions" srclang="zh" label="中文字幕" default>
-      </video>
-      <div class="play-overlay" aria-hidden="true">
-        <div class="play-pulse">▶</div>
-      </div>
-      <figcaption class="meta">
+<h1>🎮 游戏精彩</h1>
+<div class="container">
+    <div class="video-box">
+        <video
+            src="video1.mp4"
+            poster="cover.jpg"
+            controls
+            muted
+            preload="none"
+        </video>
         <div class="title">超糖视频</div>
-        <div class="caption">精彩瞬间剪辑 · 00:30</div>
-      </figcaption>
-      <!-- data 属性保存实际资源地址以供脚本注入 -->
-      <script type="application/json" data-video-src>
-        {"sources":[{"src":"video1.mp4","type":"video/mp4"}],"poster":"cover.jpg"}
-      </script>
-    </figure>
-
-    <figure class="video-box" tabindex="0" role="group" aria-label="下定决心">
-      <video muted playsinline preload="none" loop data-preview="true" aria-hidden="false"></video>
-      <div class="play-overlay" aria-hidden="true"><div class="play-pulse">▶</div></div>
-      <figcaption class="meta"><div class="title">下定决心</div><div class="caption">高能片段 · 00:45</div></figcaption>
-      <script type="application/json" data-video-src>
-        {"sources":[{"src":"video2.mp4","type":"video/mp4"}],"poster":"cover.jpg"}
-      </script>
-    </figure>
-
-    <figure class="video-box" tabindex="0" role="group" aria-label="跑酷达人">
-      <video muted playsinline preload="none" loop data-preview="true" aria-hidden="false"></video>
-      <div class="play-overlay" aria-hidden="true"><div class="play-pulse">▶</div></div>
-      <figcaption class="meta"><div class="title">跑酷达人</div><div class="caption">速度与操作 · 01:12</div></figcaption>
-      <script type="application/json" data-video-src>
-        {"sources":[{"src":"video3.mp4","type":"video/mp4"}],"poster":"cover.jpg"}
-      </script>
-    </figure>
-
-    <figure class="video-box" tabindex="0" role="group" aria-label="村庄恶魔">
-      <video muted playsinline preload="none" loop data-preview="true" aria-hidden="false"></video>
-      <div class="play-overlay" aria-hidden="true"><div class="play-pulse">▶</div></div>
-      <figcaption class="meta"><div class="title">村庄恶魔</div><div class="caption">惊悚剪辑 · 00:22</div></figcaption>
-      <script type="application/json" data-video-src>
-        {"sources":[{"src":"video4.mp4","type":"video/mp4"}],"poster":"cover.jpg"}
-      </script>
-    </figure>
-  </section>
-</main>
-
+    </div>
+    <div class="video-box">
+        <video
+            src="video2.mp4"
+            poster="cover.jpg"
+            controls
+            muted
+            preload="none"
+        </video>
+        <div class="title">下定决心</div>
+    </div>
+    <div class="video-box">
+        <video
+            src="video3.mp4"
+            poster="cover.jpg"
+            controls
+            muted
+            preload="none"
+        </video>
+        <div class="title">跑酷达人</div>
+    </div>
+    <div class="video-box">
+        <video
+            src="video4.mp4"
+            poster="cover.jpg"
+            controls
+            muted
+            preload="none"
+        </video>
+        <div class="title">村庄恶魔</div>
+    </div>
+</div>
 <script>
-/*
-  功能说明：
-  - 使用 IntersectionObserver 懒加载 <source>（进入视口时注入）
-  - pointerenter 延迟播放 preview（1s），pointerleave 停止
-  - click 或键盘 空格/Enter 切换播放状态（保持静音/非预览时可以打开声音）
-  - 预览时保持 loop 和 muted，点击后用户可放开静音（浏览器会阻止自动有声播放）
-*/
+document.querySelectorAll(".video-box video").forEach(v => {
+    let hoverTimer = null;
 
-(function(){
-  const GALLERY = document.getElementById('gallery');
-  const PREVIEW_DELAY = 1000; // ms
-  let hoverTimers = new WeakMap();
-
-  // 把 script[data-video-src] 的 json 注入到容器元素，方便后续读取
-  function attachMeta(figure){
-    const s = figure.querySelector('script[data-video-src]');
-    if(!s) return;
-    try{
-      figure._meta = JSON.parse(s.textContent);
-    }catch(e){
-      figure._meta = null;
-    }
-    // set poster on video element so poster shows before sources loaded
-    const vid = figure.querySelector('video');
-    if(figure._meta && figure._meta.poster){
-      vid.setAttribute('poster', figure._meta.poster);
-    }
-  }
-
-  // 为所有 video-box 预先 attach meta
-  document.querySelectorAll('.video-box').forEach(attachMeta);
-
-  // 懒加载：当元素可见时注入 <source>（如果还没注入过）
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        const fig = entry.target;
-        const vid = fig.querySelector('video');
-        if(!vid.dataset.srcLoaded){
-          const meta = fig._meta;
-          if(meta && Array.isArray(meta.sources)){
-            meta.sources.forEach(srcObj => {
-              const source = document.createElement('source');
-              source.src = srcObj.src;
-              if(srcObj.type) source.type = srcObj.type;
-              vid.appendChild(source);
-            });
-            vid.dataset.srcLoaded = "1";
-            // 仅加载 metadata（浏览器会按 preload=none 保持不下载媒体数据直到需要）
-            vid.load();
-          }
-        }
-      }
+    v.addEventListener("mouseenter", () => {
+        hoverTimer = setTimeout(() => {
+            if (v.paused) v.play();
+        }, 1000);
     });
-  }, { rootMargin: '200px' });
 
-  document.querySelectorAll('.video-box').forEach(f => io.observe(f));
-
-  // 事件委托处理: pointerenter / pointerleave / click / keyboard
-  GALLERY.addEventListener('pointerenter', onPointerEnter, true);
-  GALLERY.addEventListener('pointerleave', onPointerLeave, true);
-  GALLERY.addEventListener('click', onClick, true);
-  GALLERY.addEventListener('keydown', onKeydown, true);
-
-  function onPointerEnter(e){
-    const fig = e.target.closest('.video-box');
-    if(!fig) return;
-    const vid = fig.querySelector('video');
-    // delay 1s then play preview (if still hovered)
-    clearHoverTimer(fig);
-    const t = setTimeout(() => {
-      // ensure video has sources loaded
-      if(!vid.dataset.srcLoaded){
-        // try forcing load (IO should have loaded it earlier, but double-check)
-        const meta = fig._meta;
-        if(meta && Array.isArray(meta.sources)){
-          meta.sources.forEach(srcObj => {
-            const source = document.createElement('source');
-            source.src = srcObj.src;
-            if(srcObj.type) source.type = srcObj.type;
-            vid.appendChild(source);
-          });
-          vid.dataset.srcLoaded = "1";
-          vid.load();
+    v.addEventListener("mouseleave", () => {
+        clearTimeout(hoverTimer);
+        hoverTimer = null;
+        if (!v.paused) {
+            v.pause();
         }
-      }
-      // Only play preview when paused
-      vid.muted = true;
-      vid.loop = true;
-      // try/catch in case play() is rejected
-      vid.play().catch(()=>{ /* ignore */ });
-    }, PREVIEW_DELAY);
-    hoverTimers.set(fig, t);
-  }
+    });
 
-  function onPointerLeave(e){
-    const fig = e.target.closest('.video-box');
-    if(!fig) return;
-    const vid = fig.querySelector('video');
-    clearHoverTimer(fig);
-    // stop preview only if it is playing and is muted (i.e., a preview)
-    if(!vid.paused && vid.muted){
-      vid.pause();
-      vid.currentTime = 0;
-    }
-  }
-
-  function clearHoverTimer(fig){
-    const t = hoverTimers.get(fig);
-    if(t) { clearTimeout(t); hoverTimers.delete(fig); }
-  }
-
-  function onClick(e){
-    const fig = e.target.closest('.video-box');
-    if(!fig) return;
-    const vid = fig.querySelector('video');
-    // Toggle play/pause. When user explicitly clicks, unmute to allow sound if allowed later.
-    if(vid.paused){
-      // user-initiated play: try to unmute (browsers may block autoplay with sound; user click counts)
-      vid.muted = false;
-      vid.loop = false; // normal playback probably shouldn't loop
-      vid.play().catch(()=>{ /* ignore */ });
-    } else {
-      vid.pause();
-    }
-  }
-
-  function onKeydown(e){
-    const fig = e.target.closest('.video-box');
-    if(!fig) return;
-    if(e.code === 'Space' || e.key === ' ' || e.key === 'Enter'){
-      e.preventDefault();
-      const vid = fig.querySelector('video');
-      if(vid.paused){
-        vid.muted = false;
-        vid.loop = false;
-        vid.play().catch(()=>{});
-      } else {
-        vid.pause();
-      }
-    }
-  }
-
-  // 清理：在页面卸载时清掉 timers / observers（良好习惯）
-  window.addEventListener('beforeunload', () => {
-    hoverTimers = new WeakMap();
-    io.disconnect();
-  });
-})();
+    v.addEventListener("click", () => {
+        if (v.paused) v.play();
+        else v.pause();
+    });
+});
 </script>
 </body>
 </html>
